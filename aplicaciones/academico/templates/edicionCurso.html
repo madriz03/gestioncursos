@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+{% block title%} Gestion {% endblock %}
+
+
+
+{% block body%} 
+<div class = row>
+    <div class = "col-md-4 offset-md-4">
+        <h2>Edicion de curso</h2>
+        <div class= "card">
+            <div class = "card-body">
+                <form action="/editarCurso/" method="POST">{% csrf_token %}
+                    <div class= "form-group">
+                        <input type="text" id = "txtCodigo" name= "txtCodigo" value= "{{curso.codigo}}" class= "form-control " placeholder="Codigo" minlength = "6" maxlength = "6" readonly required>
+                    </div>
+                    <div class= "form-group">
+                        <input type="text" id = "txtNombre" name= "txtNombre" value= "{{curso.nombre}}" class= "form-control mt-4" placeholder="Nombre"  maxlength = "50" required>
+                    </div>
+                    <div class= "form-group">
+                        <input type="text" id = "numCreditos" name= "numCreditos" value= "{{curso.creditos}}" class= "form-control mt-4"  min = "6" max = "6" value="1" required>
+                    </div>
+                    <div class= "form-group">
+                        <button type="submit" class="btn btn-success btn-block col-12 mt-4"><strong>Guardar</strong></button>
+                    </div>
+                </form>
+    </div>
+</div>
+{% endblock %}
